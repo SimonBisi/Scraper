@@ -18,11 +18,11 @@ jobs:
       with:
         dotnet-version: 3.1.x
     - name: Restore dependencies
-      run: dotnet restore Scraper/Scraper.csproj
+      run: dotnet restore
     - name: Build
-      run: dotnet build Scraper/Scraper.csproj -c Release --no-restore
+      run: dotnet build -c Release --no-restore
     - name: Publish
-      run: dotnet publish ${{ env.PROJECT_PATH }} -c Release --self-contained -r win-x64 -p:PublishSingleFile=true --no-build
+      run: dotnet publish -c Release --self-contained -r win-x64 -p:PublishSingleFile=true --no-build
     
     - uses: actions/create-release@v1
       id: create_release
